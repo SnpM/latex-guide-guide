@@ -7,6 +7,8 @@
 \documentclass[twoside,a4paper]{refart}
 \usepackage{makeidx}
 \usepackage{ifthen}
+\usepackage{hyperref}
+\usepackage{url}
 % ifthen wird vom Bild von N.Beebe gebraucht!
 
 \def\bs{\char'134 } % backslash in \tt font.
@@ -14,14 +16,12 @@
 \newcommand{\eg}{e.\,g..}
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
 
-\title{Changing the layout with \LaTeX}
-\author{EDV-Zentrum der TU Wien, Abt.~Digitalrechenanlage \\
-Hubert Partl \\
-1988-10-04   \\
-English translation by\\
-Axel Kielhorn\thanks{a.kielhorn@web.de}\\
-1999-03-20   \\
-H27.0 --- Version 1}
+\title{\LaTeX\ Guide Guide}
+\author{
+John Pan (jpthek9@gmail.com)\\
+https://github.com/SnpM \\
+\today\\
+}
 
 \date{}
 \emergencystretch1em  %
@@ -39,21 +39,12 @@ H27.0 --- Version 1}
 \maketitle
 
 \begin{abstract}
-        This document describes the capabilities of the 
-        \texttt{refart} and \texttt{refrep} classes for \LaTeXe. 
-        These classes do not work with \LaTeX\ 2.09. They contain some 
-        improvements over the original \texttt{refman} style which may result 
-        in different output and minor incompatibilities, but make refman 
-        work with paper sizes other than ISO A4, which I consider an 
-        improvement.
+         \LaTeX\ is a typesetting standard for academic and professional documents. The system may seem complicated because of its coding syntax, but powerful \LaTeX\ editors such as Overleaf streamline the learning the process. A wealth of high-quality \LaTeX\ templates exist online, enabling authors to focus on content rather than appearance. This guide describes how to author an instructional \LaTeX\ document in Overleaf using the \texttt{refman} template.
 \end{abstract}
 
-
-This manual is an addition to chapter~5 (``Designing It Yourself'') of 
-the \LaTeX-manual by Leslie Lamport.  It was originally written in 
-1988 by Hubert Partl and updated by me during the development of 
-\texttt{refman}~2.0.  The translation into English was done in summer 
-1998, almost 10 years after the initial release in German.
+This document is part of my final project for the Technical Communication course at Thomas Edison State University.
+\par
+https://github.com/SnpM/latex-manual-manual.git
 
 \tableofcontents
 
@@ -64,70 +55,14 @@ the \LaTeX-manual by Leslie Lamport.  It was originally written in
 
 \section{Introduction}
 
-\subsection{Author, Layout Designer and Compositor}
+\subsection{What is \LaTeX?}
+LaTeX (pronounced <Lay-Tech>) is a document preparation system for technical and scientiﬁc documents. LaTeX is not a word processor; instead, it encourages authors to focus on content rather than the appearance of their documents. LaTeX is great for producing high-quality documents in academic, scientific, and professional contexts\footnote{See https://www.latex-project.org/about/}.
+\subsection{Authoring with \LaTeX}
+Authoring projects with \LaTeX is streamlined with the many tools and templates available online. Overleaf is a beautiful web-based LateX editor designed for collaboration; it boasts 3.9 million plus users from over 3,600 diﬀerent institutions\footnote{Official Overleaf website: https://www.overleaf.com/about}. \texttt{refman} is a
+collection of document classes used for writing technical reference manual\footnote{See https://ctan.org/pkg/refman?lang=en}. By managing a \texttt{refman}-based \LaTeX\ project with Overleaf, one can fluidly author an instructional manual with the power of \LaTeX.
 
-Every piece of writing -- from a short handwritten note to a printed 
-book -- consists of two components: \textbf{contents} and 
-\textbf{design.} In most cases the design is only a means to allow 
-the reader to understand the contents more easily.
-
-\index{author}\marginlabel{Author:}
-The \textbf{contents} will be written by the author of the document. 
-She usually is supported by the publisher, who issues guidelines 
-about how the document should be written and conducts proofreading.
-
-When using \LaTeX\ the contents appears in the main part of the 
-document -- between \verb|\begin{document}| and \verb|\end{document}| 
--- with some additional \LaTeX-commands that describe the meaning of 
-the different parts.
-
-\index{designer}\marginlabel{Designer:}
-The \textbf{design} of a printed document is usually defined by the 
-publisher who employs designers for this purpose.
-
-The layout is defined in so-called class files.  When writing a 
-document you have to specify the class you want to use with the 
-\verb+\documentclass+ command.
-
-The document classes distributed with \LaTeX\ have been designed by 
-American layout designers according to the conventions used in the 
-USA. The ``Koma-Script'' classes have been adapted to European taste 
-and contain many small improvements.
-
-\index{compositor}\marginlabel{Compositor:}
-The compositor takes the contents from the author and formats it 
-according to the layout the designer specified.
-
-When using \LaTeX, this job is done by the \TeX\ program and the 
-printing is done by a device driver.
-
-\subsection{Changing the Layout}
-
-If you want to use a layout different from the ones distributed with 
-\LaTeX, you have to take the following steps: 
-
-\begin{enumerate}
-
-\item
-    The layout has to be defined.
-        This is usually a job for a professional designer.
-
-\seealso{Chapter \ref{design}}
-        You can find detailed information about how change the design in 
-        chapter~\ref{design}.
-
-\item
-        The layout has to be programmed in \LaTeX. This can either result in 
-        a ``package'' that changes the behaviour of a standard class, or 
-        in the definition of a new ``class''. \texttt{Refman} used to be a 
-        package that changed the definition of the \texttt{article} 
-        class but is now a class of its own. When writing a new class, you 
-        will have more work, but as a result more freedom to change things.
-        
-\seealso{Chapter \ref{layout}}
-        Chapter~\ref{layout} contains more information about the new layout.
-        
-\end{enumerate}
+\subsection{Using this Guide}
+This document serves as a detailed guide for using \LaTeX, Overleaf, and \texttt{refman} to author a high-quality instructional manual. The guide sections are designed to be followed progressively to address the following topics: project setup, content-writing, advanced formatting, and extended learning.
 
 \section{The Art of Layout-Design}
 \label{design}
