@@ -4,6 +4,8 @@
 %
 %  Updated for REFMAN.CLS (LaTeX2e)
 %
+
+% Preamble
 \documentclass[twoside,a4paper]{refart}
 \usepackage{makeidx}
 \usepackage{ifthen}
@@ -13,16 +15,19 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{hyperref}
+\usepackage{titlesec}
 
-
-
-% ifthen wird vom Bild von N.Beebe gebraucht!
+% Setting up document
 
 \def\bs{\char'134 } % backslash in \tt font.
 \newcommand{\ie}{i.\,e.,}
 \newcommand{\eg}{e.\,g..}
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
 \captionsetup{hypcap=false}
+% Minipage spacing
+\def\bmp{\begin{minipage}{0.48\linewidth}\small} 
+\def\emp{\end{minipage}\smallskip}
+
 
 \title{\LaTeX\ Guide Guide}
 \author{
@@ -46,10 +51,10 @@ John Pan (jpthek9@gmail.com)\\
 \maketitle
 
 \begin{abstract}
-         \LaTeX\ is a typesetting standard for academic and professional documents. The system may seem complicated because of its coding syntax, but powerful \LaTeX\ editors such as Overleaf streamline the learning the process. A wealth of high-quality \LaTeX\ templates exist online, enabling authors to focus on content rather than appearance. This guide describes how to author an instructional \LaTeX\ document in Overleaf using the \texttt{refman} template.
+         \LaTeX\ is a high-quality typesetting standard for academic and professional documents. The system may seem complicated because of its coding syntax, but powerful \LaTeX\ editors such as Overleaf streamline the learning the process. A wealth of high-quality \LaTeX\ templates exist online, enabling authors to focus on content rather than appearance. This guide teaches new \LaTeX\ users how to author an instructional \LaTeX\ document in Overleaf based on the \texttt{refman} template.
 \end{abstract}
 
-This document is part of my final project for the Technical Communication course at Thomas Edison State University, mentored by Dr. Douglas Hoehn. 
+The \LaTeX Guide Guide is part of my final project for the Technical Communication course at Thomas Edison State University, mentored by Dr. Douglas Hoehn. 
 
 \tableofcontents
 
@@ -57,7 +62,8 @@ This document is part of my final project for the Technical Communication course
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% \newpage after every \section
+\newcommand{\sectionbreak}{\clearpage}
 \section{Introduction}
 
 %Cut Subsections%
