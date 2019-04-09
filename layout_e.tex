@@ -9,6 +9,8 @@
 \usepackage{ifthen}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{csquotes}
+\usepackage{graphicx}
 % ifthen wird vom Bild von N.Beebe gebraucht!
 
 \def\bs{\char'134 } % backslash in \tt font.
@@ -19,7 +21,7 @@
 \title{\LaTeX\ Guide Guide}
 \author{
 John Pan (jpthek9@gmail.com)\\
-https://github.com/SnpM \\
+\url{https://github.com/SnpM} \\
 \today\\
 }
 
@@ -42,9 +44,7 @@ https://github.com/SnpM \\
          \LaTeX\ is a typesetting standard for academic and professional documents. The system may seem complicated because of its coding syntax, but powerful \LaTeX\ editors such as Overleaf streamline the learning the process. A wealth of high-quality \LaTeX\ templates exist online, enabling authors to focus on content rather than appearance. This guide describes how to author an instructional \LaTeX\ document in Overleaf using the \texttt{refman} template.
 \end{abstract}
 
-This document is part of my final project for the Technical Communication course at Thomas Edison State University.
-\par
-https://github.com/SnpM/latex-manual-manual.git
+This document is part of my final project for the Technical Communication course at Thomas Edison State University, mentored by Dr. Douglas Hoehn. \url{https://github.com/SnpM/latex-guide-guide.git}
 
 \tableofcontents
 
@@ -55,14 +55,8 @@ https://github.com/SnpM/latex-manual-manual.git
 
 \section{Introduction}
 
-\subsection{What is \LaTeX?}
-LaTeX (pronounced <Lay-Tech>) is a document preparation system for technical and scientiﬁc documents. LaTeX is not a word processor; instead, it encourages authors to focus on content rather than the appearance of their documents. LaTeX is great for producing high-quality documents in academic, scientific, and professional contexts\footnote{See https://www.latex-project.org/about/}.
-\subsection{Authoring with \LaTeX}
-Authoring projects with \LaTeX is streamlined with the many tools and templates available online. Overleaf is a beautiful web-based LateX editor designed for collaboration; it boasts 3.9 million plus users from over 3,600 diﬀerent institutions\footnote{Official Overleaf website: https://www.overleaf.com/about}. \texttt{refman} is a
-collection of document classes used for writing technical reference manual\footnote{See https://ctan.org/pkg/refman?lang=en}. By managing a \texttt{refman}-based \LaTeX\ project with Overleaf, one can fluidly author an instructional manual with the power of \LaTeX.
-
-\subsection{Using this Guide}
-This document serves as a detailed guide for using \LaTeX, Overleaf, and \texttt{refman} to author a high-quality instructional manual. The guide sections are designed to be followed progressively to address the following topics: project setup, content-writing, advanced formatting, and extended learning.
+%Cut Subsections%
+\input{sections/Introduction.tex}
 
 \section{The Art of Layout-Design}
 \label{design}
