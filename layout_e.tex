@@ -18,6 +18,7 @@
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{todonotes}
+\usepackage{subcaption}
 
 % Setting up document
 \def\bs{\char'134 } % backslash in \tt font.
@@ -65,156 +66,21 @@ The \LaTeX\ Guide Guide is part of my final project for the Technical Communicat
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \newpage after every \section
 \newcommand{\sectionbreak}{\clearpage}
-\section{Introduction}
 
-%Cut Subsections%
+\section{Introduction}
 \input{sections/Introduction.tex}
 
+\section{Getting Started}
+\input{sections/GettingStarted.tex}
 
-%%%%%%%%%% %%%%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%%%%%% %%%%%%%% %%%%%%%%%%%%
+\section{Basic Writing}
+\input{sections/BasicWriting.tex}
 
-\subsection{A more complex example (Reference Manual)}
-\label{refmanex}
+\section{Extended Writing}
+\input{sections/ExtendedWriting.tex}
 
-We want to create a layout similar to the one used in the \textit{PostScript 
-Reference Manual}, with a wide left margin for headings and margin 
-notes and a small margin at the right and bottom.
-
-\subsubsection{Page layout}
-
-To define the new layout we use the commands described in the \LaTeX\ 
-manual. For full details see the file \texttt{refman.dtx}.
-
-%\pagebreak[2]
-
-\marginlabel{Horizontal:}
-First we define two new names for length that we will use often:
-
-\cs{fullwidth} is the width of the whole page minus a margin of 1~inch 
-on every side. 
-%
-\begin{displaymath}
-\texttt{fullwidth} = \texttt{paperwidth} - 2\ \textrm{inch}
-\end{displaymath}
-%
-From this the width of the text is calculated.
-%
-\begin{displaymath}
-\texttt{textwidth} = \texttt{fullwidth} \times \texttt{textfraction}
-\end{displaymath}
-%
-\cs{leftmarginwidth} is the width of the left margin that will be 
-used for headings and margin notes. 
-\begin{displaymath}
-\texttt{leftmarginwidth} = \texttt{fullwidth} - \texttt{textwidth}
-\end{displaymath}
-%
-This is a little more difficult in reality because the lengths have to 
-be rounded to full points and a possible two column layout -- as used 
-in the index -- must be taken into consideration.
-
-\marginlabel{Vertical:}
-The vertical layout is a little more difficult because you have to 
-deal with the page header and footer. 
-%
-\begin{displaymath}
-\texttt{textheight} = \texttt{paperheight} - 2.5\ \textrm{inch}
-\end{displaymath}
-%
-The result of this calculation is rounded to full lines. Depending on 
-the page style -- headings or footings -- it is shifted up or down by one 
-line.
-
-\vspace{0pt plus 1cm}
-
-\subsubsection{Section headings}
-
-The headings have to be modified to make them extend into the left 
-margin.
-
-In file \texttt{classes.dtx} we find the \verb|\@startsection| command 
-that defines the layout of the headings. Only parameters 4 to 6 are 
-relevant for us: parameter 4 is the space above and parameter 5 the 
-space below the section. The 6th parameter does the actual formatting.
-
-This is the original definition:\nopagebreak
-\begin{verbatim}
-\newcommand\section{\@startsection
-             {section}{1}{\z@}%
-             {-3.5ex plus -1ex minus -.2ex}%
-             {2.3ex plus .2ex}%
-             {\normalfont\Large\bfseries}}
-\end{verbatim}
-
-The commands for sub- and subsubsections are similar. Note that the 
-measures are all in \texttt{ex}, thus depending on the font size used.
-
-We define a new command \cs{secshape} to format the headings. This 
-command uses the whole width of the page for the heading. To discourage 
-hyphenation of the heading we give it a high penalty. This still 
-allows hyphenation when absolutely necessary.
-
-\begin{verbatim}
-\newcommand\secshape{%
-               \leftskip=-\leftmarginwidth%
-               \rightskip=\@flushglue%
-               \hyphenpenalty=2000}
-\end{verbatim}
-
-This command is inserted into the 6th parameter of \verb|\@startsection|.
-
-Since the headings now extend into the left margin, we can use a 
-smaller font and reduce the space between the text and the heading. The 
-new definition looks like the following:\nopagebreak
-\begin{verbatim}
-\newcommand\section{\@startsection
-             {section}{1}{\z@}%
-             {-2ex plus -1ex minus -.2ex}%
-             {0.5ex plus .2ex}%
-             {\secshape\normalfont\large\bfseries}}
-\end{verbatim}
-
-\vspace{0pt plus 1cm}
-
-\subsubsection{Setting the margin notes}
-
-The margin notes should always appear on the left side of the text. 
-The normal layout puts them into the outer margin in twoside layout.
-
-The file \texttt{latex.dtx} contains the definition of the 
-\verb|\@addmarginpar| command which is responsible for the margin 
-notes. We don't have to understand the whole definition; the important 
-part is the internal variable \verb|\@tempcnta| that is either 
-\verb|\@ne| (1) when the note should appear on the right side of the 
-text or \verb|\m@ne| ($-1$) when it should appear on the left side.
-
-This is done by the following lines:
-\begin{verbatim}
-    \@tempcnta\@ne
-    \if@twocolumn
-        \if@firstcolumn \@tempcnta\m@ne \fi
-    \else
-      \if@mparswitch
-         \ifodd\c@page \else\@tempcnta\m@ne \fi
-      \fi
-      \if@reversemargin \@tempcnta -\@tempcnta \fi
-    \fi
-\end{verbatim}
-
-which we simply replace by:
-\begin{verbatim}
-    \@tempcnta\m@ne
-\end{verbatim}
-
-The remaining lines that handle the setting of the margin note 
-depending on the parameter \verb|\@tempcnta| are left unchanged.
-
-\subsubsection{Extensions}
-
-The definitions described above are sufficient for simple applications 
-but in practical use one may want some additional commands.  
-\seealso{Appendix \ref{refman}} You will find the description for the whole new 
-class in the appendix~\ref{refman}.
+\section {Resources}
+\input{sections/Resources.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
