@@ -4,7 +4,6 @@
 %
 %  Updated for REFMAN.CLS (LaTeX2e)
 %
-
 % Preamble
 \documentclass[twoside,a4paper]{refart}
 % importing packages
@@ -19,6 +18,11 @@
 \usepackage{titlesec}
 \usepackage{todonotes}
 \usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage[T1]{fontenc}
 
 % Setting up document
 \def\bs{\char'134 } % backslash in \tt font.
@@ -29,7 +33,6 @@
 % Minipage spacing
 \def\bmp{\begin{minipage}{0.48\linewidth}\small} 
 \def\emp{\end{minipage}\smallskip}
-
 
 \title{\LaTeX\ Guide Guide}
 \author{
@@ -67,19 +70,19 @@ The \LaTeX\ Guide Guide is part of my final project for the Technical Communicat
 % \newpage after every \section
 \newcommand{\sectionbreak}{\clearpage}
 
-\section{Introduction}
+\section{Introduction}\label{sec:Introduction}
 \input{sections/Introduction.tex}
 
-\section{Getting Started}
+\section{Getting Started}\label{sec:Getting Started}
 \input{sections/GettingStarted.tex}
 
-\section{Basic Writing}
+\section{Basic Writing}\label{sec:Basic Writing}
 \input{sections/BasicWriting.tex}
 
-\section{Extended Writing}
+\section{Extended Writing}\label{sec:Extended Writing}
 \input{sections/ExtendedWriting.tex}
 
-\section {Resources}
+\section {Resources}\label{sec:Resources}
 \input{sections/Resources.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
